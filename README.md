@@ -1,5 +1,5 @@
 
-# Project-03
+# Project-04
 ## :ledger: Index
 
 - [About The Project](#beginner-about-the-project)
@@ -103,24 +103,132 @@
 <br/>
 
 ### :bulb: Create Instances 
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
 #### RDS
+
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
 #### Amazon Elastic Cache
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
 #### Amazon Active MQ
 
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Create Elastic Beanstalk Environment
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Update SG of Backend to Allow traffic from Bean SG
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Update SG of Backend to Allow Internal Traffic
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Launch Ec2-Instance for DB Initializing
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Login to the instance and Initialize RDS DB
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Change Health Check on Beanstalk at /login
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Add 443 HTTPS Listener to ELB
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Build Artifact with Backend Information
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
+### Deploy Artifact to Beanstalk
+
+### Create CDN with SSL Certificate
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+### Update Entry in DNS Zones
+
+
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
 ## :earth_africa: Verify from browser
 
 <br/>
 <div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
+    <b><a href="#Project-04">↥ back to top</a></b>
 </div>
 <br/>
-
 
 ## :page_facing_up: Resources
 
 <br/>
 <div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
+    <b><a href="#Project-04">↥ back to top</a></b>
 </div>
 <br/>
 
@@ -130,7 +238,7 @@
 
 <br/>
 <div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
+    <b><a href="#Project-04">↥ back to top</a></b>
 </div>
 <br/>
 
