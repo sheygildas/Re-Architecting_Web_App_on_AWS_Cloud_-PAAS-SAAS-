@@ -11,14 +11,7 @@
   - [Login to AWS Account ](#key-login-to-aws-account )
   - [Create Key Pairs](#closed_lock_with_key-create-key-pairs)
   - [Create Security groups](#lock-create-security-groups)
-  - [Launch Instances with user data](#bulb-launch-instances-with-user-data )
-  - [Update IP to name mapping in route 53](#earth_africa-update-ip-to-name-mapping-in-route-53)
-  - [Build Application from source code](#hammer_and_wrench-build-application-from-source-code)
-  - [Upload to S3 bucket](#rocket-upload-to-S3-bucket)
-  - [Download artifact to Tomcat Ec2 Instance](#package-download-artifact-to-tomcat-ec2-instance)
-  - [Setup ELB with HTTPS ](#lock-setup-elb-with-https )
-  - [Map ELB Endpoint to website name in DNS](#earth_africa-map-elb-endpoint-to-website-name-in-dns)
-  - [Build Autoscaling Group for Tomcat Instances](#hammer_and_wrench-build-autoscaling-group-for-tomcat-nstances)
+  - [Create Instances](#bulb-create-instances) 
 - [Verify from browser](#earth_africa-verify-from-browser) 
 - [Resources](#page_facing_up-resources)
 - [Credit/Acknowledgment](#star2-creditacknowledgment)
@@ -109,69 +102,10 @@
 </div>
 <br/>
 
-### :bulb: Launch Instances with user data 
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
-
-### :earth_africa: Update IP to name mapping in route 53
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
-
-### :hammer_and_wrench: Build Application from source code
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
-
-### :rocket: Upload to S3 bucket
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
-
-### :package: Download artifact to Tomcat Ec2 Instance
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
-
-### :lock: Setup ELB with HTTPS 
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
-
-### :earth_africa: Map ELB Endpoint to website name in DNS
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
-
-### :hammer_and_wrench: Build Autoscaling Group for Tomcat Instances
-
-<br/>
-<div align="right">
-    <b><a href="#Project-03">↥ back to top</a></b>
-</div>
-<br/>
+### :bulb: Create Instances 
+#### RDS
+#### Amazon Elastic Cache
+#### Amazon Active MQ
 
 ## :earth_africa: Verify from browser
 
