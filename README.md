@@ -278,6 +278,55 @@ SEcGrp: vprofile-backend-SG
 </div>
 <br/>
 
+#### Initialize the DB
+
+- Go to RDS instance and copy your DB endpoint.
+
+```sh
+vprofile-rds-mysql.b6hrgxmhxkpvxt.us-east-1.rds.amazonaws.com
+   ```
+
+- Create EC2 instance to initialize the DB. Terminated ths instance after the DB initialization.
+
+```sh
+Name: mysql-client
+OS: ubuntu 18.04
+t2.micro
+SecGrp: Allow SSH on port 22
+Keypair: vprofile-prod-key
+Userdata:
+#! /bin/bash
+apt update -y
+apt upgrade -y
+apt install mysql-client -y
+   ```
+   
+- SSH into mysl-client instance. We can check mysql version.
+
+
+```sh
+mysql -V
+   ```
+   
+- RUN the following command with your db endpoint.
+
+
+```sh
+mysql -h vprofile-rds-mysql.chrgxmhxkprk.us-east-1.rds.amazonaws.com -u admin -p<db_password>
+mysql> show databases;
+   ```
+- Clone the source code of this current github repository to use script to initialize our database. RUN the following commands and when you are done, you should be able to see 2 tables role, `user`, and `user_role`
+
+```sh
+git clone https://github.com/sheygildas/Re-Architecting_Web_App_on_AWS_Cloud_-PAAS-SAAS-.git
+cd Re-Architecting_Web_App_on_AWS_Cloud_-PAAS-SAAS-
+cd src/main/resources
+mysql -h vprofile-rds-mysql.chrgxmhxkprk.us-east-1.rds.amazonaws.com -u admin -padvPtIYOfqGe4T41MUXk accounts < db_backup.sql
+mysql -h vprofile-rds-mysql.chrgxmhxkprk.us-east-1.rds.amazonaws.com -u admin -padvPtIYOfqGe4T41MUXk accounts
+show tables;
+   ```
+   
+
 ### Create Elastic Beanstalk Environment
 
 <br/>
