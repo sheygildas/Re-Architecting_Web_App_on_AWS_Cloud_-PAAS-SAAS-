@@ -465,8 +465,33 @@ mvn install
 
 ### Deploy Artifact to Beanstalk
 
+- Under Beanstalk, go to application versions and Upload the artifact from your local machine. It will automatically upload the artifact to the S3 bucket created by Elastic Beanstalk.
+- Now we will select our uploaded application and click Deploy.
+
+![Project Image](project-image-url)
+
+Check if our application deployed successfully.
+
+![Project Image](project-image-url)
+<br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/>
+
 ### Create CDN with SSL Certificate
 
+- We will use to `loudFront` and create network distribution so that our application can be cache locally for easy access to our users.
+
+```sh
+Origin Domain: DNS record name ww will create for our app in previous step
+Viewer protocol: Redirect HTTP to HTTPS
+Alternate domain name: DNS record name we created for our app in previous step
+SSL Certificate: 
+Security policy: TLSv1
+   ```
+   
+![Project Image](project-image-url)
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
@@ -474,6 +499,10 @@ mvn install
 <br/>
 ### Update Entry in DNS Zones
 
+- Create an A record which aliasing Elastic Beanstalk endpoint
+
+
+![Project Image](project-image-url)
 
 <br/>
 <div align="right">
@@ -482,6 +511,27 @@ mvn install
 <br/>
 ## :earth_africa: Verify from browser
 
+- Validate whether Nginx is running by entering *http://<domain-name>* on your browser .
+
+
+![Nginx](https://github.com/sheygildas/Local_App_Setup/blob/local-setup/images/Nginx.jpg))
+
+- Validate Db connection using credentials by entering *admin_vp* for both username and password on the login page.
+
+![Db%20connection](https://github.com/sheygildas/Local_App_Setup/blob/local-setup/images/Db%20connection.jpg))
+
+- On the page, Click on RabbitMQ to validate the connection.
+
+![Rabbit%20connection](https://github.com/sheygildas/Local_App_Setup/blob/local-setup/images/Rabbit%20connection.jpg))
+
+- Validate Memcache connection by clicking MemCache.
+
+![Memcache%20connection](https://github.com/sheygildas/Local_App_Setup/blob/local-setup/images/Memcache%20connection.jpg))
+
+- Click on the user ID AND validate if data is coming from Database.
+
+![Memcache%20connection%202](https://github.com/sheygildas/Local_App_Setup/blob/local-setup/images/Memcache%20connection%202.jpg)) 
+  
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
@@ -490,6 +540,7 @@ mvn install
 
 ## :page_facing_up: Resources
 
+- Delete all resources to avoid any charges from AWS.
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
