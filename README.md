@@ -278,7 +278,7 @@ SEcGrp: vprofile-backend-SG
 </div>
 <br/>
 
-#### Initialize the DB
+### Launch Ec2-Instance for DB Initializing
 
 - Go to RDS instance and copy your DB endpoint.
 
@@ -300,7 +300,15 @@ apt update -y
 apt upgrade -y
 apt install mysql-client -y
    ```
-   
+ 
+ <br/>
+<div align="right">
+    <b><a href="#Project-04">↥ back to top</a></b>
+</div>
+<br/
+
+### Login to the instance and Initialize RDS DB
+
 - SSH into mysl-client instance. We can check mysql version.
 
 
@@ -328,47 +336,87 @@ show tables;
    
 
 ### Create Elastic Beanstalk Environment
+-  Copy all the endpoints of our backend services through AWS console. These information will be used in our `application.properties file`
 
+```sh
+DS:
+vprofile-rds-mysql.b6hrgxmhxkpvxt.us-east-1.rds.amazonaws.com:3306
+ActiveMQ: amqps://c-a7d7aacb-4894-3af7-9048-726a9ceabc89.mq.us-east-1.amazonaws.com:5671
+ElastiCache:
+vprofile-elasticache-svc.cqmvsw.cfg.use1.cache.amazonaws.com:11211
+   ```
+- Now, let's set up Application in Elastic Beanstalk with the following details.
+
+```sh
+Name: vprofilejavaapp-prod-rd
+Platform: Tomcat
+keep the rest default
+Configure more options:
+- Custom configuration
+****Instances****
+EC2 SecGrp: vprofile-backend-SG
+****Capacity****
+LoadBalanced
+Min:2
+Max:4
+InstanceType: t2.micro
+****Rolling updates and deployments****
+Deployment policy: Rolling
+Percentage :50 %
+****Security****
+EC2 key pair: vprofile-bean-key
+   ```
+   
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
 </div>
 <br/>
-
+   
 ### Update SG of Backend to Allow traffic from Bean SG
 
+- Update `vprofile-backend-SG` to allow connection from our application Security Group created by Beanstalk on port 3306, 11211 and 5671
+
+
+```sh
+Custom TCP 3306 from Beanstalk SecGrp
+Custom TCP 11211 from Beanstalk SecGrp
+Custom TCP 5671 from Beanstalk SecGrp
+   ```
+![Project Image](project-image-url) 
+
+
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
 </div>
 <br/>
+
 
 ### Update SG of Backend to Allow Internal Traffic
 
+```sh
+Custom TCP 3306 from Beanstalk SecGrp
+Custom TCP 11211 from Beanstalk SecGrp
+Custom TCP 5671 from Beanstalk SecGrp
+   ```
+
+- Update `vprofile-backend-SG` to allow Internal Traffic
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
 </div>
 <br/>
 
-### Launch Ec2-Instance for DB Initializing
-
-<br/>
-<div align="right">
-    <b><a href="#Project-04">↥ back to top</a></b>
-</div>
-<br/>
-
-### Login to the instance and Initialize RDS DB
-
-<br/>
-<div align="right">
-    <b><a href="#Project-04">↥ back to top</a></b>
-</div>
-<br/>
 
 ### Change Health Check on Beanstalk at /login
 
+- In Elastic Beanstalk console, under our app environment, we need to clink Configuration and do below changes and apply
+
+
+```sh
+Processes: Health check path : /login
+   ```
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
@@ -377,6 +425,12 @@ show tables;
 
 ### Add 443 HTTPS Listener to ELB
 
+- In Elastic Beanstalk console, under our app environment, we need to clink Configuration and do below changes and apply
+
+
+```sh
+Add Listener HTTPS port 443 with SSL cert
+   ```
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
