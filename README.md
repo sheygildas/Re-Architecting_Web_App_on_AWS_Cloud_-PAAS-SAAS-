@@ -70,6 +70,37 @@
 </div>
 <br/>
 
+## :hammer_and_wrench: Prerequisites
+
+- visual studio code
+- AWS Account
+- Maven
+- Registered DNS Name
+- JDK8
+
+<br/>
+<div align="right">
+    <b><a href="#Project-03">↥ back to top</a></b>
+</div>
+<br/>
+
+## :cloud: AWS Services
+- EC2 instance
+- ELB
+- Autoscalling
+- S3
+- Ebs
+- Route 53
+- Elastic Beanstalk
+- RDS
+- Amazon MQ
+
+<br/>
+<div align="right">
+    <b><a href="#Project-03">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## :beginner: Architecture of this project.
 
