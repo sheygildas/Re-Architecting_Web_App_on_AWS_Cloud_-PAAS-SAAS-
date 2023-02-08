@@ -218,7 +218,36 @@ Keep the rest default or you may add as your own preference
 </div>
 <br/>
 
-#### Amazon Elastic Cache
+#### Create Amazon Elastic Cache
+
+- We will start by creating the `Subnet Groups` of the Elastic cache with the details below
+
+```sh
+Name: vprofile-memcached-sub-grp
+AZ: Select All
+Subnet: Select All
+   ```
+
+- let's also create a `parameter group` for our elastic cache instance with the details below.
+
+```sh
+Name: vprofile-memcached-para-grp
+Description: vprofile-memcached-para-grp
+Family: memcached1.4
+   ```
+- Finally we will create the Memcached Cluster with the details below. To create the cluster, go to `Get Started` -> `reate Clusters` -> `Memcached Clusters`
+
+```sh
+Name: vprofile-elasticache-svc
+Engine version: 1.4.5
+Parameter Grp: vprofile-memcached-para-grp
+NodeType: cache.t2.micro
+number of Nodes: 1
+SecGrp: vprofile-backend-SG
+   ```
+
+![Project Image](project-image-url)
+
 
 <br/>
 <div align="right">
@@ -226,7 +255,22 @@ Keep the rest default or you may add as your own preference
 </div>
 <br/>
 
-#### Amazon Active MQ
+#### Create Amazon Active MQ
+
+- Create Amazon MQ service with the details below. Remeber to write down the password of MQ.
+
+```sh
+Engine type: RabbitMQ
+Single-instance-broker
+Broker name: vprofile-rmq
+Instance type: mq.t3.micro
+username: rabbit
+psw: bunnyhole789
+Additional Settings:
+private Access
+VPC: use default
+SEcGrp: vprofile-backend-SG
+   ```
 
 <br/>
 <div align="right">
