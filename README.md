@@ -326,8 +326,8 @@ mysql> show databases;
 - Clone the source code of this current github repository to use script to initialize our database. RUN the following commands and when you are done, you should be able to see 2 tables role, `user`, and `user_role`
 
 ```sh
-git clone https://github.com/sheygildas/Re-Architecting_Web_App_on_AWS_Cloud_-PAAS-SAAS-.git
-cd Re-Architecting_Web_App_on_AWS_Cloud_-PAAS-SAAS-
+git clone https://github.com/sheygildas/Re-Architecting_Web_App_on_AWS_Cloud_PAAS-SAAS.git
+cd Re-Architecting_Web_App_on_AWS_Cloud_PAAS-SAAS
 cd src/main/resources
 mysql -h vprofile-rds-mysql.chrgxmhxkprk.us-east-1.rds.amazonaws.com -u admin -padvPtIYOfqGe4T41MUXk accounts < db_backup.sql
 mysql -h vprofile-rds-mysql.chrgxmhxkprk.us-east-1.rds.amazonaws.com -u admin -padvPtIYOfqGe4T41MUXk accounts
@@ -439,6 +439,24 @@ Add Listener HTTPS port 443 with SSL cert
 
 ### Build Artifact with Backend Information
 
+- Go to `application.properties file` and update it with correct endpoints and username and passwords as below.
+- Remember that the `application.prpoerties file` is found in the repository that we cloned earlier under `src/main/resources/application.properties`
+
+```sh
+vi src/main/resources/application.properties
+*****Updates the following*****
+jdbc.url
+jdbc.password
+memcached.active.host
+rabbitmq.address
+rabbitmq.username
+rabbitmq.password
+   ```
+- Go to root directory of `Re-Architecting_Web_App_on_AWS_Cloud_PAAS-SAAS` project to the same level with pom.xml file. Run below command to build the artifact
+
+```sh
+mvn install
+   ```
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
