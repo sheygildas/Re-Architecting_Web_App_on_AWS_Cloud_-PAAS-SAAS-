@@ -94,7 +94,8 @@
 - Elastic Beanstalk
 - RDS
 - Amazon MQ
-
+- ElastiCache
+- 
 <br/>
 <div align="right">
     <b><a href="#Project-03">↥ back to top</a></b>
@@ -122,6 +123,7 @@
 
 ### :key: Login to AWS Account
 
+
 <br/>
 <div align="right">
     <b><a href="#Project-03">↥ back to top</a></b>
@@ -130,6 +132,14 @@
 
 ### :closed_lock_with_key: Create Key Pairs
 
+- Create the  key pair that you use to login to your AWS services and name it as follows.
+
+ ```sh
+Name: vprofile-bean-key
+   ```
+   
+![Project Image](project-image-url)  
+   
 <br/>
 <div align="right">
     <b><a href="#Project-03">↥ back to top</a></b>
@@ -138,6 +148,14 @@
 
 ### :lock: Create Security groups
 
+- Create a security group for the `backend services` and name it `vprofile-backend-SG`. 
+- Set `inbound rules` to allow  `11211`for Memcached, `5672` for RabbitMQ and port `3306` for MySQL server.
+- Note: application.properties file found under [src/main/resources](https://github.com/sheygildas/Local_App_Setup/tree/local-setup/src/main/resources) directory, contain all the port rhat have to be open for our application services to communicate each other. 
+- Allow all traffic from backends' own security group so that the backend services can communicate with each other.
+
+
+![Project Image](project-image-url)
+ 
 <br/>
 <div align="right">
     <b><a href="#Project-03">↥ back to top</a></b>
@@ -145,14 +163,53 @@
 <br/>
 
 ### :bulb: Create Instances 
-
+- We will create all the instances for our project below.
 <br/>
 <div align="right">
     <b><a href="#Project-04">↥ back to top</a></b>
 </div>
 <br/>
 
-#### RDS
+#### Create RDS
+
+- Before creating our RDS instance, let's first of all creat the `Subnet Groups` of our RDS with below details.
+
+```sh
+Name of subnet group: vprofile-rds-sub-grp
+AZ: Select All
+Subnet: Select All
+   ```
+- let's also create a `parameter group` for our RDS instance with the details below.
+
+```sh
+Parameter group family: mysql5.7
+Type: DB Parameter Group
+Group Name: vprofile-rds-para-grp
+   ```
+
+- Now let's create our RDS instances with the following details.
+
+
+```sh
+Method: Standard Create
+Engine Options: MySQL
+Engine version: 5.7.33
+Templates: Free-Tier
+DB Instance Identifier: vprofile-rds-mysql
+Master username: admin
+Password: Auto generate psw
+Instance Type: db.t2.micro
+Subnet grp: vprofile-rds-sub-grp
+SecGrp:  vprofile-backend-SG
+No public access
+DB Authentication: Password authentication
+Additional Configuration
+Initial DB Name: accounts
+Keep the rest default or you may add as your own preference
+   ```
+- When you clicking `Create button`, a popup window will come out proceed and click on `view credential` details then write down RDS pass that has been generated.
+
+![Project Image](project-image-url)
 
 
 <br/>
