@@ -511,7 +511,7 @@ Security policy: TLSv1
 <br/>
 ## :earth_africa: Verify from browser
 
-- Validate whether Nginx is running by entering *http://<domain-name>* on your browser .
+- Validate whether Nginx is running by entering `http://domain-name` on your browser .
 
 
 ![Nginx](https://github.com/sheygildas/Local_App_Setup/blob/local-setup/images/Nginx.jpg))
