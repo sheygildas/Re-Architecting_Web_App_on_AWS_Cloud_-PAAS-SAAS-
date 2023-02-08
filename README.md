@@ -336,6 +336,7 @@ show tables;
    
 
 ### Create Elastic Beanstalk Environment
+
 -  Copy all the endpoints of our backend services through AWS console. These information will be used in our `application.properties file`
 
 ```sh
@@ -396,9 +397,8 @@ Custom TCP 5671 from Beanstalk SecGrp
 ### Update SG of Backend to Allow Internal Traffic
 
 ```sh
-Custom TCP 3306 from Beanstalk SecGrp
-Custom TCP 11211 from Beanstalk SecGrp
-Custom TCP 5671 from Beanstalk SecGrp
+
+Custom All traffic  from Beanstalk SecGrp
    ```
 
 - Update `vprofile-backend-SG` to allow Internal Traffic
